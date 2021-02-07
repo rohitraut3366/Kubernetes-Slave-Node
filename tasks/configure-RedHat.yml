@@ -33,8 +33,7 @@
       key: "{{ rpm_gpgkey }}"
 
 - name: Install kubelet kubeadm kubectl iproute-tc
-  yum:
-      name: "{{ item }}"
+
       state: present
       disable_excludes: all
       disable_gpg_check: yes
