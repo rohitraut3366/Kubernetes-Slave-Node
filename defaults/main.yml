@@ -9,8 +9,6 @@ rpm_gpgkey: "https://packages.cloud.google.com/yum/doc/yum-key.gpg"
 apt_gpgkey: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
 apt_repo_url: "deb https://apt.kubernetes.io/ kubernetes-xenial main"
 
-
 #General
 pkg: ["kubeadm", "kubectl", "kubelet"]
 service: ["docker", "kubelet"]
-

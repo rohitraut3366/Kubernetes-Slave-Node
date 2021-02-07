@@ -19,12 +19,10 @@
       url: "{{ apt_gpgkey }}"
       state: present
 
-
 - name: Add kubernetes software repository into sources list
   apt_repository:
     repo: "{{ apt_repo_url }}"
     state: present
-
 
 - name: Install kubelet kubeadm kubectl
   package:
@@ -64,4 +62,3 @@
   command: "{{ join_token.stdout }}"
   ignore_errors: yes
   changed_when: false
-
