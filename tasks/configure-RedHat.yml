@@ -26,6 +26,7 @@
       description: yum repository for k8s
       gpgkey: "{{ rpm_gpgkey }}"
       exclude: kubelet kubeadm kubectl
+      gpgcheck: no
 
 - name: Add gpgkey
   rpm_key:
@@ -33,7 +34,8 @@
       key: "{{ rpm_gpgkey }}"
 
 - name: Install kubelet kubeadm kubectl iproute-tc
-
+  package:
+      name: "{{ item }}"
       state: present
       disable_excludes: all
       disable_gpg_check: yes
@@ -70,7 +72,7 @@
   changed_when: false
 
 - name: Setting Selinux permissive permanently
-  command: "sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config"
+  shell: "sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config"
   args:
         warn: false
   ignore_errors: yes
