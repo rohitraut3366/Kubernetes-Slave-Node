@@ -27,7 +27,8 @@
       gpgkey: "{{ rpm_gpgkey }}"
       exclude: kubelet kubeadm kubectl
 
-- rpm_key:
+- name: Add gpgkey
+  rpm_key:
       state: present
       key: "{{ rpm_gpgkey }}"
 
@@ -65,12 +66,12 @@
   ignore_errors: yes
 
 - name: Selinux permissive
-  shell: "setenforce 0"
+  command: "setenforce 0"
   ignore_errors: yes
   changed_when: false
 
 - name: Setting Selinux permissive permanently
-  shell: "sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config"
+  command: "sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config"
   args:
         warn: false
   ignore_errors: yes
