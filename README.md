@@ -17,7 +17,7 @@ A description of the settable variables for this role should go here, including 
 ```
 tag_Name_K8S_Master
 ```
-You can change In tasks 
+For custome group name: You can change In tasks 
 ```
 - name: Create token to join
   command: "kubeadm token create  --print-join-command"
