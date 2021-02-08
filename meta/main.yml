@@ -29,7 +29,6 @@ galaxy_info:
   galaxy_tags: 
     - kubernetes
     - k8s
-    - master
     - cluster
 
     # List tags for your role here, one per line. A tag is a keyword that describes
